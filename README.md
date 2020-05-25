@@ -3,7 +3,7 @@ A tool which scrapes public github repositories for common naming conventions in
 
 This current upload contains the results from 5,256,950 php files from 39,069 different repositories
 
-Gitscraper examines PHP files to create SecList / Dictionary files which can be used against any envinonment ( not just PHP ) for pentesting & bounty hunters.
+Gitscraper examines PHP files to create SecList / Dictionary files which can be used against any environment ( not just PHP ) for pentesting & bounty hunters.
 
 ### How to Run
 

@@ -1,9 +1,9 @@
 # gitscraper
 A tool which scrapes public github repositories for common naming conventions in variables, folders and files
 
-This current upload contains the results from 5,256,950 php files from 39,069 different repositories
+This current upload contains the results from 11,085,399 php files from 73155 different repositories
 
-Gitscraper examines PHP files to create SecList / Dictionary files which can be used against any envinonment ( not just PHP ) for pentesting & bounty hunters.
+Gitscraper examines PHP files to create SecList / Dictionary files which can be used against any environment ( not just PHP ) for pentesting & bounty hunters.
 
 ### How to Run
 
@@ -22,14 +22,14 @@ It will collect the following:
 
 Each time one of the above is found it is added into its appropriate file in the /raw directory. These raw files are then sorted and ordered by the most duplicated content at the top and then cleaned as best as possible and put in the /cleaned directory
 
-Current command for cleaning file
+Current command for cleaning files ( to be run in /raw directory )
 
-sort raw/{filename}.txt | uniq -c -d | sort -n -r | sed '/^[[:alnum:]/-._ ]*$/!d' | cut -c 9- | sed '/^$/d' > cleaned/{filename}.txt
+for filename in *; do sort $filename | grep -v ' ' | grep -v -P "\t" | uniq -d -c | sort -n -r | cut -c 9- > ../cleaned/$filename  ; done
 
 1. ( sort ) Sort the file so all occurences are next to each other
-2. ( uniq ) Pick out all the uniqe lines and prepend with the number of times found
-3. ( sort ) Sort by the instance of times found to the most common is at the top
-4. ( sed ) Remove any lines that don't contain alphanumeric text, hyphens underscores, full stops and spaces.
-5. ( cut ) Remove the instances found number
-6. ( sed ) Remove any blank lines
+2. ( grep ) Remove lines that contain spaces
+3. ( grep ) Remove lines that contain tabs
+4. ( uniq ) Pick out all the uniqe lines and prepend with the number of times found
+5. ( sort ) Sort by the instance of times found to the most common is at the top
+6. ( cut ) Remove the instances found number
 7. ( > ) Echo out to cleaned directory

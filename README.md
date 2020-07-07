@@ -1,7 +1,7 @@
 # gitscraper
 A tool which scrapes public github repositories for common naming conventions in variables, folders and files
 
-This current upload contains the results from 11,085,399 php files from 73155 different repositories
+This current upload contains the results from 16,018,052  php files from 102808 different repositories
 
 Gitscraper examines PHP files to create SecList / Dictionary files which can be used against any environment ( not just PHP ) for pentesting & bounty hunters.
 

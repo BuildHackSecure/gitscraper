@@ -1,5 +1,5 @@
-# gitscraper
-A tool which scrapes public github repositories for common naming conventions in variables, folders and files
+# Gitscraper
+IT is a tool which scrapes public github repositories for common naming conventions in variables, folders and files
 
 This current upload contains the results from 16,018,052  php files from 102808 different repositories
 

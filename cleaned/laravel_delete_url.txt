@@ -1,8 +1,0 @@
-login
-register
-rate
-login/access
-bundle/(:any)/edit
-admin/setup
-user
-admin

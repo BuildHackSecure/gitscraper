@@ -1,35 +1,25 @@
 # gitscraper
-A tool which scrapes public github repositories for common naming conventions in variables, folders and files
 
-This current upload contains the results from 16,018,052  php files from 102808 different repositories
+These are the results of scraping 176,734 GitHub repos and 35,958,908 individual files for commonly occurring strings which can be used for fuzzing.
 
-Gitscraper examines PHP files to create SecList / Dictionary files which can be used against any environment ( not just PHP ) for pentesting & bounty hunters.
+It was created by grepping php files for particular patterns but can be used against any web stack.
 
-### How to Run
+The results have been processed and ordered from the most frequently found at the top to least at the bottom.
 
-php gitscraper.php {GitHub Username} {GitHub Personal KEY}
+### files.txt
+This is the filename of the individual php file
 
+### folders.txt
+This is the folder name that the php file was found in.
 
-It will collect the following:
+### headers.txt
+These are headers that the web application requests.
 
-1) Folder & File Names
+### methods.txt
+These are function names within the php application.
 
-2) GET & POST variables
+### routes.txt
+These are routes which are defined in the 3 most popular php frameworks.
 
-3) HTTP Header Variables
-
-4) Laravel GET,POST,PUT & DELETE Routes
-
-Each time one of the above is found it is added into its appropriate file in the /raw directory. These raw files are then sorted and ordered by the most duplicated content at the top and then cleaned as best as possible and put in the /cleaned directory
-
-Current command for cleaning files ( to be run in /raw directory )
-
-for filename in *; do sort $filename | grep -v ' ' | grep -v -P "\t" | uniq -d -c | sort -n -r | cut -c 9- > ../cleaned/$filename  ; done
-
-1. ( sort ) Sort the file so all occurences are next to each other
-2. ( grep ) Remove lines that contain spaces
-3. ( grep ) Remove lines that contain tabs
-4. ( uniq ) Pick out all the uniqe lines and prepend with the number of times found
-5. ( sort ) Sort by the instance of times found to the most common is at the top
-6. ( cut ) Remove the instances found number
-7. ( > ) Echo out to cleaned directory
+### params.txt
+These are parameters that the web application looks for in the request body or query string.
